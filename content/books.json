@@ -1,45 +1,44 @@
 [
   {
-    "slug": "kitab-al-amal",
-    "title_ar": "كتاب الأمل",
-    "title_en": "The Book of Hope",
-    "year": 1987,
+    "slug": "abo-zakaria-elfaraa",
+    "title_ar": "أبو زكريا الفراء ومذهبه فى النحو واللغة",
+    "title_en": "Abu Zakariya al-Farra' and his school of thought in grammar and language",
+    "year": 1964,
     "type": "novel",
-    "publisher": "دار المشرق",
+    "publisher": "المجلس الاعلى لرعاية الفنون والآداب والعلوم الاجتماعية بالقاهرة ",
     "isbn": "978-0000000001",
     "summary_ar": "رواية تستكشف معنى الأمل في زمن التحولات.",
     "summary_en": "A novel exploring the meaning of hope amid upheaval.",
-    "cover": "/media/covers/kitab-al-amal.jpg",
-    "pdf": "/media/pdfs/kitab-al-amal.pdf",
-    "tags": ["الهوية", "المنفى"]
+    "cover": "/media/covers/abo-zakaria-elfaraa.png",
+    "pdf": "/media/pdfs/abo-zakaria-elfaraa.pdf",
+    "tags": ["اللغة", "النحو"]
   },
   {
-    "slug": "ashjar-al-bahr",
-    "title_ar": "أشجار البحر",
-    "title_en": "Trees of the Sea",
-    "year": 1993,
+    "slug": "sibawayh-fe-elmezan",
+    "title_ar": "سيبويه والقراءات: دراسة تحليلية معيارية",
+    "title_en": "Sibawayh and the recitations: normative analytical study",
+    "year": 1972,
     "type": "poetry",
-    "publisher": "النهار",
+    "publisher": "طبع دار المعارف بمصر",
     "isbn": "978-0000000002",
     "summary_ar": "قصائد عن المدن الساحلية وأغاني الموج.",
     "summary_en": "Poems of coastal towns and the songs of waves.",
-    "cover": "/media/covers/ashjar-al-bahr.jpg",
-    "pdf": "/media/pdfs/ashjar-al-bahr.pdf",
-    "tags": ["البحر", "الذاكرة"]
+    "cover": "/media/covers/sibawayh-fe-elmezan.png",
+    "pdf": "/media/pdfs/sibawayh-fe-elmezan.pdf",
+    "tags": ["القرآن", "النحو"]
   },
   {
-    "slug": "ayyam-al-madina",
-    "title_ar": "أيام المدينة",
-    "title_en": "Days of the City",
-    "year": 2001,
+    "slug": "defaa-an-elquraan",
+    "title_ar": "الدفاع عن القران الكريم ضد النحويين والمستشرقين",
+    "title_en": "Defending the Holy Quran against grammarians and orientalists",
+    "year": 1973,
     "type": "essays",
-    "publisher": "—",
+    "publisher": "دار المعارف بمصر",
     "isbn": "—",
     "summary_ar": "مقالات عن التحول العمراني والحنين.",
     "summary_en": "Essays on urban transformation and longing.",
-    "cover": "/media/covers/ayyam-al-madina.jpg",
-    "pdf": "/media/pdfs/ayyam-al-madina.pdf",
-    "tags": ["المدينة", "التحول"]
+    "cover": "/media/covers/defaa-an-elquraan.png",
+    "pdf": "/media/pdfs/defaa-an-elquraan.pdf",
+    "tags": ["التجويد", "المستشرقين", "النحو"]
   }
 ]
-

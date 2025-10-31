@@ -1,6 +1,6 @@
 const en = {
   common: {
-    siteTitle: "Writer Memorial",
+    siteTitle: "Ahmed Mekky El Ansary",
     all: "All",
     details: "Details",
     openExternal: "Open External",

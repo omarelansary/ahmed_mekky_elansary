@@ -34,7 +34,7 @@ export function personJsonLd(locale: Locale) {
     description,
     birthDate: "1928-01-01",
     deathDate: "2015-01-01",
-    image: absolute("/media/portrait.jpg"),
+    image: absolute("/media/profilepicture.png"),
   };
 }
 
@@ -67,7 +67,7 @@ export function homeMetadata(locale: Locale): Metadata {
       url,
       title,
       description,
-      images: [{ url: absolute("/media/portrait.jpg"), alt: title }],
+      images: [{ url: absolute("/media/profilepicture.png"), alt: title }],
       locale: locale === "en" ? "en" : "ar",
     },
   };
@@ -90,9 +90,8 @@ export function biographyMetadata(locale: Locale): Metadata {
       url,
       title,
       description,
-      images: [{ url: absolute("/media/portrait.jpg"), alt: title }],
+      images: [{ url: absolute("/media/profilepicture.png"), alt: title }],
       locale: locale === "en" ? "en" : "ar",
     },
   };
 }
-

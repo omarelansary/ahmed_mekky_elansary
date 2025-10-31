@@ -16,7 +16,13 @@ export default function EnglishHome() {
       />
       <section className="grid gap-8 md:grid-cols-[1fr,1.5fr] items-center">
         <div className="aspect-square relative rounded overflow-hidden bg-black/5 dark:bg-white/10">
-          <Image src="/media/portrait.jpg" alt="Writer portrait" fill sizes="(min-width: 768px) 320px, 100vw" className="object-cover" />
+          <Image
+            src="/media/profilepicture.png"
+            alt="Writer portrait"
+            fill
+            sizes="(min-width: 768px) 320px, 100vw"
+            className="object-cover"
+          />
         </div>
         <div className="[padding-inline:0.5rem]">
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Ahmed Elansary</h1>

@@ -1,6 +1,6 @@
 const ar = {
   common: {
-    siteTitle: "موقع الكاتب التذكاري",
+    siteTitle: "احمد مكي الانصاري",
     all: "الكل",
     details: "تفاصيل",
     openExternal: "فتح الرابط الخارجي",
