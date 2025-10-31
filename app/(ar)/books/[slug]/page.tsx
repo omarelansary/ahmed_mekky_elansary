@@ -40,30 +40,36 @@ export default async function BookDetailAr({ params }: Props) {
   return (
     <div className="grid gap-8">
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="grid gap-6 md:grid-cols-[1fr,2fr] items-start">
-        <div className="relative aspect-[3/4] rounded overflow-hidden border border-black/10 dark:border-white/10">
-          <Image src={book.cover} alt={book.title_ar} fill sizes="(min-width: 768px) 320px, 80vw" className="object-cover" />
-        </div>
-        <div className="[padding-inline:0.5rem]">
-          <h1 className="text-3xl font-semibold tracking-tight">{book.title_ar}</h1>
-          <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-            {book.year} • {labelType(book.type, "ar")}
-          </p>
-          <dl className="mt-4 grid gap-2 text-sm">
-            <div className="flex gap-2"><dt className="text-zinc-500 w-24">الناشر</dt><dd>{book.publisher}</dd></div>
-            <div className="flex gap-2"><dt className="text-zinc-500 w-24">ISBN</dt><dd>{book.isbn}</dd></div>
-          </dl>
-          <p className="mt-4 text-zinc-800 dark:text-zinc-200">{book.summary_ar}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {book.tags.map((t) => (
-              <span key={t} className="text-xs rounded-full [padding-inline:0.5rem] py-1 border border-black/10 dark:border-white/20">{t}</span>
-            ))}
+      <section className="section rounded-2xl bg-[url('/texture.png')] bg-cover bg-no-repeat">
+        <div className="grid gap-6 md:grid-cols-[1fr,2fr] items-start">
+          <div className="relative aspect-[3/4] rounded overflow-hidden border border-black/10 dark:border-white/10">
+            <Image src={book.cover} alt={book.title_ar} fill sizes="(min-width: 768px) 320px, 80vw" className="object-cover" />
+          </div>
+          <div className="[padding-inline:0.5rem]">
+            <h1 className="text-3xl font-semibold tracking-tight">{book.title_ar}</h1>
+            <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+              {book.year} • {labelType(book.type, "ar")}
+            </p>
+            <dl className="mt-4 grid gap-2 text-sm">
+              <div className="flex gap-2"><dt className="text-zinc-500 w-24">الناشر</dt><dd>{book.publisher}</dd></div>
+              <div className="flex gap-2"><dt className="text-zinc-500 w-24">ISBN</dt><dd>{book.isbn}</dd></div>
+            </dl>
+            <p className="mt-4 text-zinc-800 dark:text-zinc-200">{book.summary_ar}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {book.tags.map((t) => (
+                <span key={t} className="text-xs rounded-full [padding-inline:0.5rem] py-1 border border-black/10 dark:border-white/20">{t}</span>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {pdfUrl && <ActionRow fileUrl={pdfUrl} locale="ar" title={book.title_ar} />}
-      {pdfUrl && <PdfViewer fileUrl={pdfUrl} />}
+      {pdfUrl && (
+        <div className="rounded-2xl bg-white shadow-md border border-black/5 p-2">
+          <PdfViewer fileUrl={pdfUrl} />
+        </div>
+      )}
 
       {related.length > 0 && (
         <section className="mt-8">

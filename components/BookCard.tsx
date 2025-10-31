@@ -11,16 +11,12 @@ export default function BookCard({ book, locale }: Props) {
   const href = locale === "en" ? `/en/books/${book.slug}` : `/books/${book.slug}`;
   const title = locale === "en" ? book.title_en : book.title_ar;
   return (
-    <Link href={href} className="group rounded-lg border border-black/10 dark:border-white/10 overflow-hidden block hover:shadow-sm">
-      <div className="relative aspect-[3/4] bg-black/5 dark:bg-white/10">
-        <Image src={book.cover} alt={title} fill sizes="(min-width: 768px) 200px, 40vw" className="object-cover" />
+    <Link href={href} className="block rounded-2xl bg-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out p-5 border border-black/5">
+      <div className="relative w-full h-60">
+        <Image src={book.cover} alt={title} fill sizes="(min-width: 768px) 300px, 90vw" className="object-cover rounded-lg mb-4" />
       </div>
-      <div className="p-3">
-        <h3 className="font-medium leading-tight line-clamp-2 group-hover:underline underline-offset-4">{title}</h3>
-        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-          {book.year} • {labelType(book.type, locale)}
-        </p>
-      </div>
+      <h3 className="text-xl font-semibold mb-2 ui">{title}</h3>
+      <p className="text-gray-700 text-sm">{book.year} • {labelType(book.type, locale)}</p>
     </Link>
   );
 }
@@ -33,4 +29,3 @@ function labelType(type: Book["type"], locale: "ar" | "en") {
   };
   return map[type][locale];
 }
-

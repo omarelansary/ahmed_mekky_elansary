@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cairo, Amiri, Merriweather } from "next/font/google";
 import "./globals.css";
 import LocaleHtml from "@/components/LocaleHtml";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const uiSans = Cairo({
+  variable: "--font-ui",
+  weight: ["400", "500", "700"],
+  subsets: ["arabic", "latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const serifAr = Amiri({
+  variable: "--font-serif-ar",
+  weight: ["400", "700"],
+  subsets: ["arabic", "latin"],
+});
+
+const serifEn = Merriweather({
+  variable: "--font-serif-en",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -27,15 +35,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${uiSans.variable} ${serifAr.variable} ${serifEn.variable} antialiased`}>
         {/* Locale-aware html attributes updater for /en route */}
         {/* This ensures <html> lang/dir match the current locale at runtime */}
         {/* Client-side updater to keep <html> lang/dir in sync with locale */}
         <LocaleHtml />
         <Header />
-        <main className="mx-auto max-w-5xl [padding-inline:1rem] md:[padding-inline:2rem] py-8">
+        <main className="mx-auto max-w-4xl px-4 sm:px-6 md:px-8 py-8">
           {children}
         </main>
         <Footer />

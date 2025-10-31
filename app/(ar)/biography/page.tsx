@@ -15,8 +15,10 @@ export default async function BiographyArPage() {
   ];
 
   return (
-    <div className="prose prose-zinc max-w-none rtl:[text-align:start]">
-      <ReactMarkdown>{md}</ReactMarkdown>
+    <div>
+      <div className="prose prose-zinc max-w-none rtl:[text-align:start] border-s-4 ps-4 [border-color:var(--accent)]">
+        <ReactMarkdown>{md}</ReactMarkdown>
+      </div>
       <section className="mt-10">
         <h2 className="text-xl font-semibold mb-3">محطات مختصرة</h2>
         <ul className="grid gap-2">
@@ -31,4 +33,3 @@ export default async function BiographyArPage() {
     </div>
   );
 }
-
