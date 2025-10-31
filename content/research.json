@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "identity-narratives-1999",
+    "title_ar": "سرديات الهوية بعد 1999",
+    "title_en": "Identity Narratives After 1999",
+    "authors": ["A. Elansary"],
+    "year": 2010,
+    "abstract_ar": "قراءة في تحولات مفهوم الهوية في السرد المعاصر.",
+    "abstract_en": "An examination of shifting identity concepts in contemporary narratives.",
+    "pdf": "/media/pdfs/identity-narratives-1999.pdf",
+    "external_url": null,
+    "tags": ["الهوية", "السرد"]
+  },
+  {
+    "slug": "exile-forms-essays",
+    "title_ar": "أشكال المنفى",
+    "title_en": "Forms of Exile",
+    "authors": ["A. Elansary", "H. Mekky"],
+    "year": 2015,
+    "abstract_ar": "مقاربة نقدية لأثر المنفى على الشكل الأدبي.",
+    "abstract_en": "A critical approach to how exile shapes literary form.",
+    "pdf": null,
+    "external_url": "https://example.org/forms-of-exile",
+    "tags": ["المنفى", "النقد"]
+  },
+  {
+    "slug": "sea-memory-poetics",
+    "title_ar": "شعرية البحر والذاكرة",
+    "title_en": "The Poetics of Sea and Memory",
+    "authors": ["A. Elansary"],
+    "year": 2018,
+    "abstract_ar": "بحث في علاقة الصورة البحرية بتقنيات الاسترجاع.",
+    "abstract_en": "Study of maritime imagery and techniques of recollection.",
+    "pdf": "/media/pdfs/sea-memory-poetics.pdf",
+    "external_url": null,
+    "tags": ["البحر", "الذاكرة"]
+  }
+]
+

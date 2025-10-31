@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LocaleHtml from "@/components/LocaleHtml";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +34,11 @@ export default function RootLayout({
         {/* This ensures <html> lang/dir match the current locale at runtime */}
         {/* Client-side updater to keep <html> lang/dir in sync with locale */}
         <LocaleHtml />
-        {children}
+        <Header />
+        <main className="mx-auto max-w-5xl [padding-inline:1rem] md:[padding-inline:2rem] py-8">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
