@@ -4,6 +4,7 @@ import "./globals.css";
 import LocaleHtml from "@/components/LocaleHtml";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import A11ySkipLink from "@/components/A11ySkipLink";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,8 +35,9 @@ export default function RootLayout({
         {/* This ensures <html> lang/dir match the current locale at runtime */}
         {/* Client-side updater to keep <html> lang/dir in sync with locale */}
         <LocaleHtml />
+        <A11ySkipLink />
         <Header />
-        <main className="mx-auto max-w-5xl [padding-inline:1rem] md:[padding-inline:2rem] py-8">
+        <main id="main-content" className="mx-auto max-w-5xl [padding-inline:1rem] md:[padding-inline:2rem] py-8">
           {children}
         </main>
         <Footer />

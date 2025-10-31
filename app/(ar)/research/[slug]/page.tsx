@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getResearch, getResearchBySlug } from "@/lib/content";
 import PdfViewer from "@/components/PdfViewer";
+import { getT } from "@/locales";
 
 type Props = { params: { slug: string } };
 
@@ -14,6 +15,7 @@ export async function generateStaticParams() {
 export default async function ResearchDetailAr({ params }: Props) {
   const item = await getResearchBySlug(params.slug);
   if (!item) return notFound();
+  const t = getT("ar");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -56,9 +58,9 @@ export default async function ResearchDetailAr({ params }: Props) {
             href={item.external_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded border border-black/10 dark:border-white/20 px-3 py-1"
+            className="rounded border border-black/10 dark:border-white/20 px-3 py-2 tap-target"
           >
-            فتح الرابط الخارجي
+            {t.common.openExternal}
           </a>
         )}
         {pdfUrl && <ActionRow fileUrl={pdfUrl} locale="ar" title={item.title_ar} />}
@@ -67,14 +69,16 @@ export default async function ResearchDetailAr({ params }: Props) {
       {pdfUrl && <PdfViewer fileUrl={pdfUrl} />}
 
       <section className="mt-8 text-sm text-zinc-600 dark:text-zinc-400">
-        اطّلع أيضًا على: <a className="hover:underline underline-offset-4" href="/books">الكتب</a> · {""}
-        <a className="hover:underline underline-offset-4" href="/biography">السيرة</a>
+        {t.common.seeAlso} <a className="hover:underline underline-offset-4" href="/books">{t.nav.books}</a> · {""}
+        <a className="hover:underline underline-offset-4" href="/biography">{t.nav.biography}</a>
       </section>
     </div>
   );
 }
 
 function ActionRow({ fileUrl, locale, title }: { fileUrl: string; locale: "ar" | "en"; title: string }) {
+  const { getT } = require("@/locales");
+  const t = getT(locale);
   async function onShare() {
     try {
       if (navigator.share) {
@@ -87,13 +91,12 @@ function ActionRow({ fileUrl, locale, title }: { fileUrl: string; locale: "ar" |
   }
   return (
     <div className="flex items-center gap-3">
-      <a href={fileUrl} download className="rounded border border-black/10 dark:border-white/20 px-3 py-1">
-        {locale === "en" ? "Download PDF" : "تنزيل"}
+      <a href={fileUrl} download className="rounded border border-black/10 dark:border-white/20 px-3 py-2 tap-target">
+        {t.common.downloadPdf}
       </a>
-      <button onClick={onShare} className="rounded border border-black/10 dark:border-white/20 px-3 py-1">
-        {locale === "en" ? "Share" : "مشاركة"}
+      <button onClick={onShare} className="rounded border border-black/10 dark:border-white/20 px-3 py-2 tap-target">
+        {t.common.share}
       </button>
     </div>
   );
 }
-

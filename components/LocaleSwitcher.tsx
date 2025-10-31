@@ -10,14 +10,17 @@ export default function LocaleSwitcher() {
   const target = toggleLocale(current);
   const href = localizePath(pathname, target);
 
+  const aria = current === "en" ? "Switch to Arabic" : "التبديل إلى الإنجليزية";
+  const labelText = current === "en" ? "العربية" : "English";
+
   return (
     <Link
       href={href}
       prefetch={false}
-      aria-label={current === "en" ? "Switch to Arabic" : "التبديل إلى الإنجليزية"}
-      className="inline-flex items-center rounded border border-black/10 dark:border-white/20 px-3 py-1 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+      aria-label={aria}
+      className="inline-flex items-center rounded border border-black/10 dark:border-white/20 px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10 tap-target"
     >
-      {current === "en" ? "العربية" : "English"}
+      {labelText}
     </Link>
   );
 }

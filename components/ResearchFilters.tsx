@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Research } from "@/types";
 import TagPills from "@/components/TagPills";
+import { getT } from "@/locales";
 
 type Props = {
   items: Research[];
@@ -17,8 +18,9 @@ export default function ResearchFilters({ items, locale, children }: Props) {
   const years = useMemo(() => Array.from(new Set(items.map((i) => i.year))).sort(), [items]);
   const tags = useMemo(() => Array.from(new Set(items.flatMap((i) => i.tags))).sort(), [items]);
 
-  const tagLabel = locale === "en" ? "Filter by tag" : "تصفية بالوسم";
-  const yearLabel = locale === "en" ? "Year" : "السنة";
+  const t = getT(locale);
+  const tagLabel = t.research.filterByTag;
+  const yearLabel = t.research.year;
 
   const filtered = useMemo(() => {
     return items.filter((r) => {
@@ -37,11 +39,11 @@ export default function ResearchFilters({ items, locale, children }: Props) {
       <label className="flex items-center gap-2">
         <span className="w-24 shrink-0 text-sm text-zinc-600 dark:text-zinc-400">{yearLabel}</span>
         <select
-          className="w-full rounded border border-black/10 dark:border-white/20 bg-transparent px-3 py-2"
+          className="w-full rounded border border-black/10 dark:border-white/20 bg-transparent px-3 py-2 tap-target"
           value={year}
           onChange={(e) => setYear(e.target.value)}
         >
-          <option value="all">{locale === "en" ? "All" : "الكل"}</option>
+          <option value="all">{t.common.all}</option>
           {years.map((y) => (
             <option key={y} value={String(y)}>
               {y}
@@ -53,4 +55,3 @@ export default function ResearchFilters({ items, locale, children }: Props) {
     </div>
   );
 }
-

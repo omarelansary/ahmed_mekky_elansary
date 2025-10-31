@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Book } from "@/types";
+import { getT } from "@/locales";
 
 type Props = {
   items: Book[];
@@ -14,15 +15,14 @@ export default function BookFilters({ items, locale, children }: Props) {
   const [decade, setDecade] = useState<string>("all");
   const [q, setQ] = useState<string>("");
 
-  const typeLabel = locale === "en" ? "Type" : "النوع";
-  const decadeLabel = locale === "en" ? "Decade" : "العقد";
-  const searchLabel = locale === "en" ? "Search title" : "ابحث في العنوان";
+  const t = getT(locale);
+  const typeLabel = t.books.type;
+  const decadeLabel = t.books.decade;
+  const searchLabel = t.books.searchTitle;
 
   const types = useMemo(() => Array.from(new Set(items.map((i) => i.type))), [items]);
   const decades = useMemo(() => {
-    const d = new Set(
-      items.map((i) => `${Math.floor(i.year / 10) * 10}s`).sort()
-    );
+    const d = new Set(items.map((i) => `${Math.floor(i.year / 10) * 10}s`).sort());
     return Array.from(d);
   }, [items]);
 
@@ -46,14 +46,14 @@ export default function BookFilters({ items, locale, children }: Props) {
       <label className="flex items-center gap-2">
         <span className="w-24 shrink-0 text-sm text-zinc-600 dark:text-zinc-400">{typeLabel}</span>
         <select
-          className="w-full rounded border border-black/10 dark:border-white/20 bg-transparent px-3 py-2"
+          className="w-full rounded border border-black/10 dark:border-white/20 bg-transparent px-3 py-2 tap-target"
           value={type}
           onChange={(e) => setType(e.target.value)}
         >
-          <option value="all">{locale === "en" ? "All" : "الكل"}</option>
-          {types.map((t) => (
-            <option key={t} value={t}>
-              {labelType(t as Book["type"], locale)}
+          <option value="all">{t.common.all}</option>
+          {types.map((tval) => (
+            <option key={tval} value={tval}>
+              {labelType(tval as Book["type"], locale)}
             </option>
           ))}
         </select>
@@ -62,11 +62,11 @@ export default function BookFilters({ items, locale, children }: Props) {
       <label className="flex items-center gap-2">
         <span className="w-24 shrink-0 text-sm text-zinc-600 dark:text-zinc-400">{decadeLabel}</span>
         <select
-          className="w-full rounded border border-black/10 dark:border-white/20 bg-transparent px-3 py-2"
+          className="w-full rounded border border-black/10 dark:border-white/20 bg-transparent px-3 py-2 tap-target"
           value={decade}
           onChange={(e) => setDecade(e.target.value)}
         >
-          <option value="all">{locale === "en" ? "All" : "الكل"}</option>
+          <option value="all">{t.common.all}</option>
           {decades.map((d) => (
             <option key={d} value={d}>
               {d}
@@ -79,10 +79,11 @@ export default function BookFilters({ items, locale, children }: Props) {
         <span className="w-24 shrink-0 text-sm text-zinc-600 dark:text-zinc-400">{searchLabel}</span>
         <input
           type="search"
-          className="w-full rounded border border-black/10 dark:border-white/20 bg-transparent px-3 py-2"
+          className="w-full rounded border border-black/10 dark:border-white/20 bg-transparent px-3 py-2 tap-target"
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder={locale === "en" ? "e.g. Hope" : "مثلاً: الأمل"}
+          placeholder={t.books.searchTitle}
+          aria-label={t.books.searchTitle}
         />
       </label>
 
@@ -92,11 +93,7 @@ export default function BookFilters({ items, locale, children }: Props) {
 }
 
 function labelType(type: Book["type"], locale: "ar" | "en") {
-  const map: Record<Book["type"], { ar: string; en: string }> = {
-    novel: { ar: "رواية", en: "Novel" },
-    poetry: { ar: "شعر", en: "Poetry" },
-    essays: { ar: "مقالات", en: "Essays" },
-  };
-  return map[type][locale];
+  const t = getT(locale);
+  return t.books.types[type];
 }
 

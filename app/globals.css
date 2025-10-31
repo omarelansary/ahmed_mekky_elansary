@@ -37,3 +37,39 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.7;
 }
+
+/* Visible focus styles for keyboard users */
+*:focus-visible {
+  outline: 3px solid #2563eb; /* blue-600 */
+  outline-offset: 2px;
+}
+
+/* Skip link: shown when focused */
+.skip-link {
+  position: absolute;
+  inset-block-start: 0.5rem;
+  inset-inline-start: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0.375rem;
+  z-index: 1000;
+  transform: translateY(-150%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Ensure touch targets meet 44px guidance when using this utility */
+.tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Logical spacing helpers for icons/arrows */
+[dir="rtl"] .rtl-mirror { transform: scaleX(-1); }
+
+/* Make inline paddings logical where used as utilities */
+.px-inline-4 { padding-inline: 1rem; }
+.mx-inline-auto { margin-inline: auto; }
